@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 25% 11%;
+    --foreground: 0 0% 98%;
+    --card: 260 25% 14%;
+    --card-foreground: 0 0% 98%;
+    --popover: 260 25% 14%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 267 100% 75%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 260 25% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 260 25% 16%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 267 100% 75%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 25% 18%;
+    --input: 260 25% 16%;
+    --ring: 267 100% 75%;
+    --chart-1: 267 100% 75%;
+    --chart-2: 280 100% 65%;
+    --chart-3: 250 100% 70%;
+    --chart-4: 290 100% 60%;
+    --chart-5: 310 100% 65%;
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 260 25% 11%;
+    --card: 0 0% 98%;
+    --card-foreground: 260 25% 11%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 260 25% 11%;
+    --primary: 267 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 260 25% 92%;
+    --secondary-foreground: 260 25% 11%;
+    --muted: 260 25% 92%;
+    --muted-foreground: 260 25% 40%;
+    --accent: 267 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 25% 90%;
+    --input: 260 25% 90%;
+    --ring: 267 100% 50%;
+    --chart-1: 267 100% 50%;
+    --chart-2: 280 100% 45%;
+    --chart-3: 250 100% 55%;
+    --chart-4: 290 100% 40%;
+    --chart-5: 310 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.animated-background {
+  background: linear-gradient(
+    45deg,
+    hsl(var(--background)) 0%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.sparkle {
+  pointer-events: none;
+  position: fixed;
+  background: radial-gradient(circle, hsl(var(--primary) / 0.8) 0%, transparent 60%);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  animation: sparkle-fade 1s ease-out forwards;
+  z-index: 50;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes sparkle-fade {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+}
