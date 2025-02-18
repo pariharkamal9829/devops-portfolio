@@ -52,26 +52,55 @@ export default function Portfolio() {
           <motion.div 
             key={index} 
             className="bg-gray-900 shadow-lg rounded-lg overflow-hidden"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.1, rotate: 2 }}
+            transition={{ duration: 0.3 }}
           >
             {project.video ? (
-              <video className="w-full h-56 object-cover" autoPlay loop muted>
+              <motion.video className="w-full h-56 object-cover" autoPlay loop muted
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+              >
                 <source src={project.video} type="video/mp4" />
-              </video>
+              </motion.video>
             ) : (
-              <Image src={project.image} alt={project.title} width={600} height={300} className="w-full h-56 object-cover" />
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+                <Image src={project.image} alt={project.title} width={600} height={300} className="w-full h-56 object-cover" />
+              </motion.div>
             )}
             <div className="p-6">
               <h2 className="text-2xl font-semibold text-violet-400">{project.title}</h2>
               <p className="text-gray-300 mt-2">{project.description}</p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {project.tags.map((tag, i) => (
-                  <span key={i} className="bg-violet-600 text-white px-2 py-1 rounded-md text-sm">{tag}</span>
+                  <motion.span 
+                    key={i} 
+                    className="bg-violet-600 text-white px-2 py-1 rounded-md text-sm"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {tag}
+                  </motion.span>
                 ))}
               </div>
               <div className="mt-4 flex justify-between">
-                <Link href={project.github} className="bg-violet-600 text-white px-4 py-2 rounded hover:bg-violet-500 transition" target="_blank">View Code</Link>
-                {project.demo && <Link href={project.demo} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500 transition" target="_blank">Live Demo</Link>}
+                <motion.a 
+                  href={project.github} 
+                  className="bg-violet-600 text-white px-4 py-2 rounded hover:bg-violet-500 transition"
+                  target="_blank"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  View Code
+                </motion.a>
+                {project.demo && (
+                  <motion.a 
+                    href={project.demo} 
+                    className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500 transition"
+                    target="_blank"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    Live Demo
+                  </motion.a>
+                )}
               </div>
             </div>
           </motion.div>
