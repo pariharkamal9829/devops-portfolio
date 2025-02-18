@@ -17,56 +17,31 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log(formData);
   };
 
   const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'john.doe@example.com',
-      href: 'mailto:john.doe@example.com',
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'San Francisco, CA',
-    },
-    {
-      icon: Github,
-      label: 'GitHub',
-      value: 'github.com/johndoe',
-      href: 'https://github.com',
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/johndoe',
-      href: 'https://linkedin.com',
-    },
+    { icon: Mail, label: 'Email', value: 'john.doe@example.com', href: 'mailto:john.doe@example.com' },
+    { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
+    { icon: MapPin, label: 'Location', value: 'San Francisco, CA' },
+    { icon: Github, label: 'GitHub', value: 'github.com/johndoe', href: 'https://github.com' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/johndoe', href: 'https://linkedin.com' },
   ];
 
   return (
-    <div className="container max-w-5xl py-16">
+    <div className="container mx-auto px-6 lg:px-12 py-16 max-w-6xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="grid gap-8 md:grid-cols-2"
+        className="grid gap-12 md:grid-cols-2"
       >
-        <div className="space-y-8">
+        {/* Contact Info */}
+        <div className="space-y-8 text-center md:text-left">
           <div>
             <h1 className="text-3xl font-bold mb-4">Get in Touch</h1>
-            <p className="text-muted-foreground">
-              Have a project in mind? Let's discuss how we can work together to
-              build and optimize your infrastructure.
+            <p className="text-muted-foreground text-lg">
+              Have a project in mind? Let's discuss how we can work together.
             </p>
           </div>
           <div className="space-y-6">
@@ -76,22 +51,19 @@ export default function Contact() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center gap-4"
+                className="flex items-center gap-4 justify-center md:justify-start"
               >
-                <div className="p-2 rounded-full bg-primary/10 text-primary">
-                  <item.icon className="h-5 w-5" />
+                <div className="p-3 rounded-full bg-primary/10 text-primary">
+                  <item.icon className="h-6 w-6" />
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">{item.label}</div>
                   {item.href ? (
-                    <a
-                      href={item.href}
-                      className="hover:text-primary transition-colors"
-                    >
+                    <a href={item.href} className="hover:text-primary transition-colors text-lg">
                       {item.value}
                     </a>
                   ) : (
-                    <div>{item.value}</div>
+                    <div className="text-lg">{item.value}</div>
                   )}
                 </div>
               </motion.div>
@@ -99,62 +71,59 @@ export default function Contact() {
           </div>
         </div>
 
+        {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Card>
+          <Card className="shadow-lg rounded-lg">
             <CardHeader>
-              <CardTitle>Send Message</CardTitle>
+              <CardTitle className="text-center text-2xl">Send a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="text-sm font-medium block mb-1">
                     Name
                   </label>
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
+                    className="w-full"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
+                <div>
+                  <label htmlFor="email" className="text-sm font-medium block mb-1">
                     Email
                   </label>
                   <Input
                     id="email"
                     type="email"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
+                    className="w-full"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
+                <div>
+                  <label htmlFor="message" className="text-sm font-medium block mb-1">
                     Message
                   </label>
                   <Textarea
                     id="message"
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
-                    className="min-h-[150px]"
+                    className="w-full min-h-[150px]"
                   />
                 </div>
                 <Button type="submit" className="w-full group">
                   <span className="flex items-center gap-2">
                     Send Message
-                    <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Button>
               </form>
