@@ -21,11 +21,11 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'john.doe@example.com', href: 'mailto:john.doe@example.com' },
-    { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: MapPin, label: 'Location', value: 'San Francisco, CA' },
-    { icon: Github, label: 'GitHub', value: 'github.com/johndoe', href: 'https://github.com' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/johndoe', href: 'https://linkedin.com' },
+    { icon: Mail, label: 'Email', value: 'pariharkamal9829@gmail.com', href: 'mailto:pariharkamal9829@gmail.com' },
+    { icon: Phone, label: 'Phone', value: '+91-9887494512', href: 'tel:+919887494512' },
+    { icon: MapPin, label: 'Location', value: 'Punjab, India' },
+    { icon: Github, label: 'GitHub', value: 'github.com/pariharkamal9829', href: 'https://github.com/pariharkamal9829' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/kamlesh-parihar', href: 'https://www.linkedin.com/in/kamlesh-parihar/' },
   ];
 
   return (
