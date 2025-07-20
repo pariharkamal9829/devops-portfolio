@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
+import Image from 'next/image';
 
 const navigation = [
   { name: 'About', href: '/' },
@@ -43,10 +44,20 @@ export function Navigation() {
       <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/98 to-background/95 backdrop-blur-xl" />
       <div className="container relative flex h-16 items-center justify-between px-4 sm:px-6">
         {/* Logo/Brand */}
-        <Link href="/" className="flex items-center space-x-2 z-50">
-          <Terminal className="h-6 w-6 text-primary" />
-          <span className="font-bold text-base hidden xs:inline">DevOps Portfolio</span>
-          <span className="font-bold text-base xs:hidden">Portfolio</span>
+        <Link href="/" className="flex items-center space-x-3 z-50">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-primary/20">
+            <Image
+              src="/image/pic.jpg"
+              alt="Kamlesh Parihar"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex items-center space-x-2">
+            <Terminal className="h-6 w-6 text-primary" />
+            <span className="font-bold text-base hidden xs:inline">Kamlesh Parihar</span>
+            <span className="font-bold text-base xs:hidden">Kamlesh</span>
+          </div>
         </Link>
         
         {/* Desktop Navigation */}

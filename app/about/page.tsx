@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Github, Linkedin, Mail, MapPin, Server, Cloud, GitBranch } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -46,8 +47,35 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="order-1 lg:order-2 flex justify-center"
         >
-          <div className="w-full max-w-md">
-            <TechIcons />
+          <div className="flex flex-col items-center space-y-6">
+            {/* Profile Picture */}
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72">
+              <motion.div
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-primary/0"
+              />
+              <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                <Image
+                  src="/image/pic.jpg"
+                  alt="Kamlesh Parihar"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            
+            {/* Tech Icons */}
+            <div className="w-full max-w-md">
+              <TechIcons />
+            </div>
           </div>
         </motion.div>
       </section>

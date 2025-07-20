@@ -54,25 +54,22 @@ const certifications = [
     title: 'AWS Certified Solutions Architect Associate',
     issuer: 'Amazon Web Services',
     date: '2024',
-    image: '/images/certifications/aws-saa.png',
+    image: '/image/aws-certified-solutions-architect-associate (2).png',
+    verifyLink: 'https://www.credly.com/badges/9550cc3f-ae9e-4192-b2d1-cfd6c4122022/linked_in_profile',
   },
   {
     title: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services',
     date: '2023',
-    image: '/images/certifications/aws-ccp.png',
+    image: '/image/aws-certified-cloud-practitioner.png',
+    verifyLink: 'https://www.credly.com/badges/b46283d1-ffef-4873-9818-f43fed158c76/linked_in_profile',
   },
   {
-    title: 'Microsoft Azure Administrator Associate (AZ-500)',
+    title: 'Microsoft Azure Security Engineer Associate (AZ-500)',
     issuer: 'Microsoft',
     date: '2023',
-    image: '/images/certifications/azure-az500.png',
-  },
-  {
-    title: 'Google Cloud Digital Leader',
-    issuer: 'Google Cloud',
-    date: '2023',
-    image: '/images/certifications/gcp-cdl.png',
+    image: '/image/azure-security-engineer-associate600x600 (1).png',
+    verifyLink: 'https://learn.microsoft.com/en-us/users/pariharkamal/credentials/certification-o-/azure-security-engineer?tab=credentials-tab',
   },
 ];
 
