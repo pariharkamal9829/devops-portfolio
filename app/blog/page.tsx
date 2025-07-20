@@ -47,24 +47,25 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="mb-8 text-3xl font-bold text-center sm:text-left">Technical Blog</h1>
+        <h1 className="mb-6 sm:mb-8 text-2xl sm:text-3xl font-bold text-center">Technical Blog</h1>
       </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {posts.map((post, index) => (
           <motion.div
             key={post.slug}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="h-full"
           >
-            <Link href={`/blog/${post.slug}`}>
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group rounded-lg">
+            <Link href={`/blog/${post.slug}`} className="block h-full">
+              <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group rounded-lg h-full flex flex-col">
                 <div className="aspect-video relative overflow-hidden">
                   <img
                     src={post.image}
@@ -72,33 +73,40 @@ export default function Blog() {
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <CardHeader>
-                  <CardTitle className="group-hover:text-primary transition-colors text-lg font-semibold">
+                <CardHeader className="pb-2 sm:pb-4">
+                  <CardTitle className="group-hover:text-primary transition-colors text-base sm:text-lg font-semibold line-clamp-2">
                     {post.title}
                   </CardTitle>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                     <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {post.date}
+                      <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
+                      <span>{post.date}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {post.readTime}
+                      <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
+                      <span>{post.readTime}</span>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground text-sm">{post.excerpt}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
+                <CardContent className="space-y-3 sm:space-y-4 flex-1 flex flex-col p-4 sm:p-6 pt-0">
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed flex-1 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
+                    {post.tags.slice(0, 3).map((tag) => (
                       <Badge key={tag} variant="secondary" className="text-xs px-2 py-1">
                         {tag}
                       </Badge>
                     ))}
+                    {post.tags.length > 3 && (
+                      <Badge variant="outline" className="text-xs px-2 py-1">
+                        +{post.tags.length - 3}
+                      </Badge>
+                    )}
                   </div>
-                  <div className="flex items-center text-primary font-medium group-hover:gap-2 transition-all">
+                  <div className="flex items-center text-primary font-medium group-hover:gap-2 transition-all text-sm">
                     Read More
-                    <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-all" />
+                    <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 opacity-0 group-hover:opacity-100 transition-all" />
                   </div>
                 </CardContent>
               </Card>

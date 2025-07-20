@@ -21,49 +21,52 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'john.doe@example.com', href: 'mailto:john.doe@example.com' },
-    { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: MapPin, label: 'Location', value: 'San Francisco, CA' },
-    { icon: Github, label: 'GitHub', value: 'github.com/johndoe', href: 'https://github.com' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/johndoe', href: 'https://linkedin.com' },
+    { icon: Mail, label: 'Email', value: 'pariharkamal9829@gmail.com', href: 'mailto:pariharkamal9829@gmail.com' },
+    { icon: Phone, label: 'Phone', value: '+91 8209685949', href: 'tel:+918209685949' },
+    { icon: MapPin, label: 'Location', value: 'Bali, Rajasthan, India' },
+    { icon: Github, label: 'GitHub', value: 'github.com/pariharkamal9829', href: 'https://github.com/pariharkamal9829' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/kamlesh-parihar', href: 'https://www.linkedin.com/in/kamlesh-parihar/' },
   ];
 
   return (
-    <div className="container mx-auto px-6 lg:px-12 py-16 max-w-6xl">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 md:py-16 max-w-6xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="grid gap-12 md:grid-cols-2"
+        className="grid gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2"
       >
         {/* Contact Info */}
-        <div className="space-y-8 text-center md:text-left">
+        <div className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1">
           <div>
-            <h1 className="text-3xl font-bold mb-4">Get in Touch</h1>
-            <p className="text-muted-foreground text-lg">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Get in Touch</h1>
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               Have a project in mind? Let's discuss how we can work together.
             </p>
           </div>
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {contactInfo.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center gap-4 justify-center md:justify-start"
+                className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start"
               >
-                <div className="p-3 rounded-full bg-primary/10 text-primary">
-                  <item.icon className="h-6 w-6" />
+                <div className="p-2 sm:p-3 rounded-full bg-primary/10 text-primary flex-shrink-0">
+                  <item.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">{item.label}</div>
+                <div className="text-left">
+                  <div className="text-xs sm:text-sm text-muted-foreground">{item.label}</div>
                   {item.href ? (
-                    <a href={item.href} className="hover:text-primary transition-colors text-lg">
+                    <a 
+                      href={item.href} 
+                      className="hover:text-primary transition-colors text-sm sm:text-base md:text-lg break-all"
+                    >
                       {item.value}
                     </a>
                   ) : (
-                    <div className="text-lg">{item.value}</div>
+                    <div className="text-sm sm:text-base md:text-lg">{item.value}</div>
                   )}
                 </div>
               </motion.div>
@@ -76,15 +79,16 @@ export default function Contact() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
+          className="order-1 lg:order-2"
         >
           <Card className="shadow-lg rounded-lg">
-            <CardHeader>
-              <CardTitle className="text-center text-2xl">Send a Message</CardTitle>
+            <CardHeader className="text-center">
+              <CardTitle className="text-xl sm:text-2xl">Send a Message</CardTitle>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <CardContent className="p-4 sm:p-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className="text-sm font-medium block mb-1">
+                  <label htmlFor="name" className="text-sm font-medium block mb-1 sm:mb-2">
                     Name
                   </label>
                   <Input
@@ -92,11 +96,11 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="w-full"
+                    className="w-full text-sm sm:text-base"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="text-sm font-medium block mb-1">
+                  <label htmlFor="email" className="text-sm font-medium block mb-1 sm:mb-2">
                     Email
                   </label>
                   <Input
@@ -105,11 +109,11 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="w-full"
+                    className="w-full text-sm sm:text-base"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="text-sm font-medium block mb-1">
+                  <label htmlFor="message" className="text-sm font-medium block mb-1 sm:mb-2">
                     Message
                   </label>
                   <Textarea
@@ -117,13 +121,13 @@ export default function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
-                    className="w-full min-h-[150px]"
+                    className="w-full min-h-[120px] sm:min-h-[150px] text-sm sm:text-base resize-none"
                   />
                 </div>
-                <Button type="submit" className="w-full group">
-                  <span className="flex items-center gap-2">
+                <Button type="submit" className="w-full group text-sm sm:text-base">
+                  <span className="flex items-center justify-center gap-2">
                     Send Message
-                    <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    <Send className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Button>
               </form>
