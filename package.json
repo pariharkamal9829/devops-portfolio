@@ -39,7 +39,7 @@
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
     "@react-three/drei": "^9.82.6",
-    "@react-three/fiber": "^9.1.1",
+    "@react-three/fiber": "^8.13.7",
     "@types/node": "^20.17.9",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
