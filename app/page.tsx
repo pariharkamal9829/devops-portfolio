@@ -22,6 +22,10 @@ const certifications = [
 		title: 'Azure Security Engineer',
 		image: '/image/azure-security-engineer-associate600x600 (1).png',
 	},
+	{
+		title: 'AWS Certified AI Cloud Practitioner',
+		image: '/image/aws-certified-ai-cloud-practitioner.png',
+	},
 ];
 
 export default function Home() {
@@ -335,6 +339,8 @@ export default function Home() {
 					</motion.div>
 				</div>
 			</div>
+
+
 		</div>
 	);
 }

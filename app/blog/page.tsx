@@ -81,6 +81,7 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background/50 to-primary/5">
+      {/* Medium feed removed per request - keeping saved blog layout */}
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />

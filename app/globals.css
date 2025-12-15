@@ -258,4 +258,40 @@
       font-size: 16px;
     }
   }
+
+  /* Typography tweaks to better match reference spacing and scale */
+  h1 {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+    line-height: 1.05;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: clamp(1.125rem, 1.8vw, 1.25rem);
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Slightly larger container width for wide layouts like the reference */
+  .container {
+    max-width: 1200px;
+  }
+
+  /* Tighten card paddings for a denser look */
+  .card, .Card, .rounded-lg.p-6 {
+    padding: 1rem;
+  }
 }

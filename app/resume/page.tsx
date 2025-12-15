@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { FaMicrosoft } from 'react-icons/fa';
 import { Building, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { SiUpwork } from 'react-icons/si';
+import UpworkReviews from '@/components/upwork-reviews';
 
 // Import React Icons for tool logos
 import { 
@@ -200,6 +201,13 @@ const certifications = [
         image: '/image/azure-security-engineer-associate600x600 (1).png',
         verifyLink:
             'https://learn.microsoft.com/en-us/users/pariharkamal/credentials/certification-o-/azure-security-engineer?tab=credentials-tab',
+    },
+    {
+        title: 'AWS Certified AI Cloud Practitioner',
+        issuer: 'Amazon Web Services',
+        date: '2025',
+        image: '/image/aws-certified-ai-cloud-practitioner.png',
+        verifyLink: 'https://www.credly.com/badges/d77305f9-b1ce-456f-8371-c83b5e068a41',
     },
   ];
 
@@ -867,6 +875,9 @@ export default function Resume() {
                         ))}
                     </div>
                 </section>
+
+                {/* Upwork Reviews Slider */}
+                <UpworkReviews />
 
                 {/* Education Section */}
                 <section>

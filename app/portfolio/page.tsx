@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink, ChevronDown, ChevronUp, Award, Calendar, Users, Target } from 'lucide-react';
 import Link from 'next/link';
+// (Removed GitHub/Upwork sections per request)
 
 const projects = [
   {
@@ -248,6 +249,8 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      {/* GitHub/Upwork sections removed */}
 
       {/* All Projects Grid */}
       <section className="py-16">
