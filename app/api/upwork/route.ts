@@ -10,7 +10,7 @@ export async function GET() {
     const text = await res.text();
 
     // Try a simple regex to extract review-like snippets (best-effort)
-    const reviewMatches = [...text.matchAll(/<p[^>]*class="?review-text[^"]*"?[^>]*>([\s\S]*?)<\/p>/gi)];
+    const reviewMatches = Array.from(text.matchAll(/your-regex-here/g));
     const reviews: string[] = [];
 
     if (reviewMatches.length) {
