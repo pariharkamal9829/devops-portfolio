@@ -1,13 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import AnimatedBox from '@/components/animated-box';
 import { Cloud, Server, Database, Shield } from 'lucide-react';
 
 export default function About() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+      <AnimatedBox>
         <h1 className="text-4xl font-bold mb-4">About Me</h1>
         <p className="text-muted-foreground mb-6">What I Bring to Your Team</p>
 
@@ -190,7 +190,7 @@ export default function About() {
             </Button>
           </div>
         </section>
-      </motion.div>
+      </AnimatedBox>
     </div>
   );
 }
